@@ -1,0 +1,32 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class ShoppingList {
+    public static void main(String[] args) {
+        ArrayList<String> shoppingList = new ArrayList<>();
+        shoppingList.add("milk");
+        shoppingList.add("vegetables");
+        shoppingList.add("shampoo");
+        shoppingList.add("vinegar");
+        shoppingList.add("cheese");
+
+        System.out.println("Your shopping list: " + String.join(", ", shoppingList));
+        System.out.println("You entered " + shoppingList.size() + " items.");
+
+        Scanner scanner = new Scanner(System.in);
+        while (true) {
+            System.out.print("Search for an item: ");
+            String itemToSearch = scanner.nextLine();
+            if (shoppingList.contains(itemToSearch.toLowerCase())) {
+                System.out.println("✅ " + itemToSearch + " is in your shopping list!");
+            } else {
+                System.out.println("❌ " + itemToSearch + " is not in your shopping list.");
+            }
+            System.out.print("Do you want to search again? (yes/no): ");
+            String cont = scanner.nextLine();
+            if (!cont.equalsIgnoreCase("yes")) {
+                break;
+            }
+        }
+    }
+}
